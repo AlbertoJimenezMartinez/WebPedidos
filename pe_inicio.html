@@ -1,0 +1,31 @@
+<?php
+session_start();
+//si no has iniciado sesion, volvemos al login
+if (!isset($_SESSION['nombre'])){
+	header("Location: index.php");
+}
+	
+?>
+
+<html>
+	<meta charset="utf-8" />
+	<head> <title> Menu Database WEBPEDIDO </title>
+	</head>
+	<body>
+		<h1>Menu Database WEBPEDIDO - Alberto</h1>
+		</br>
+		<?php
+			echo "Sesion Iniciada con el usuario: ".$_SESSION['nombre'];
+		?>
+		<form action='pe_altaped.php' method='post'><input type='submit' value='Realizar Pedido'></form></br>		
+		<form action='pe_consped.php' method='post'><input type='submit' value='Consultar Pedidos'></form></br>	
+		<form action='pe_consprodstock.php' method='post'><input type='submit' value='Consultar Stock de un Producto'></form></br>	
+		<form action='pe_constock.php' method='post'><input type='submit' value='Consultar Stock de una Linea de Producto'></form></br>	
+		<form action='pe_topprod.php' method='post'><input type='submit' value='Consultar Productos Vendidos entre 2 fechas'></form></br>	
+		<form action='pe_conspago.php' method='post'><input type='submit' value='Consultar Pago Cliente'></form></br>	
+		
+		<br><br><a href='logout.php'>Cerrar sesion</a>
+
+	</body>
+</html>
+
